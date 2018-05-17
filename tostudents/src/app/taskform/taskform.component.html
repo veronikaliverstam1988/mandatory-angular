@@ -1,0 +1,34 @@
+<!-- Add event binding for form submit... -->
+<div *ngIf="showForm">
+  <form
+    style="margin-bottom: 10px"
+  >
+
+    <!-- Apply ngModel to this input... -->
+    <input
+      class="input"
+      type="text"
+      name="title"
+      placeholder="title"
+      required minlength="3"
+      maxlength="30"
+      [(ngModel)]="task.title"
+      #title="ngModel"
+    />
+    <!-- Markup for error messages... -->
+    <div class="error" *ngIf="title.invalid && (title.dirty || title.touched)">Your input must contain at least 3 and maximum 30 characters
+    </div>
+
+    <!-- Apply ngModel to this input... -->
+    <input
+      class="input"
+      type="text"
+      placeholder="description"
+    />
+
+    <!-- Disable button if form is invalid. -->
+    <button type="submit">
+      Save
+    </button>
+  </form>
+</div>
